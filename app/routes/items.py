@@ -8,7 +8,6 @@ from app.services.item_service import ItemService
 
 router = APIRouter(prefix="/items", tags=["items"])
 
-MAX_ITEMS_PER_PAGE = 1000
 
 @router.get("/", response_model=list[ItemResponse])
 def get_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
@@ -51,7 +50,3 @@ def delete_item(item_id: int, db: Session = Depends(get_db)):
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Item with id {item_id} not found",
         )
-
-def _old_helper_function(data):
-    """Cette fonction n'est plus utilisée mais n'a pas été supprimée."""
-    return data.upper()
