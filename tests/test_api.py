@@ -5,8 +5,8 @@ from fastapi.testclient import TestClient
 from sqlmodel import Session, SQLModel, create_engine
 from sqlmodel.pool import StaticPool
 
-from app.main import app
 from app.database import get_db
+from app.main import app
 
 
 # Configuration de la base de données de test en mémoire
@@ -52,9 +52,7 @@ def test_read_health(client: TestClient):
 
 def test_create_item(client: TestClient):
     """Test de création d'un item."""
-    response = client.post(
-        "/items/", json={"nom": "Test Item", "prix": 99.99}
-    )
+    response = client.post("/items/", json={"nom": "Test Item", "prix": 99.99})
     assert response.status_code == 201
     data = response.json()
     assert data["nom"] == "Test Item"
@@ -100,15 +98,11 @@ def test_read_item_not_found(client: TestClient):
 def test_update_item(client: TestClient):
     """Test de mise à jour d'un item."""
     # Créer un item
-    create_response = client.post(
-        "/items/", json={"nom": "Original", "prix": 100.0}
-    )
+    create_response = client.post("/items/", json={"nom": "Original", "prix": 100.0})
     item_id = create_response.json()["id"]
 
     # Mettre à jour l'item
-    response = client.put(
-        f"/items/{item_id}", json={"nom": "Updated", "prix": 150.0}
-    )
+    response = client.put(f"/items/{item_id}", json={"nom": "Updated", "prix": 150.0})
     assert response.status_code == 200
     data = response.json()
     assert data["nom"] == "Updated"
@@ -118,9 +112,7 @@ def test_update_item(client: TestClient):
 def test_delete_item(client: TestClient):
     """Test de suppression d'un item."""
     # Créer un item
-    create_response = client.post(
-        "/items/", json={"nom": "To Delete", "prix": 25.0}
-    )
+    create_response = client.post("/items/", json={"nom": "To Delete", "prix": 25.0})
     item_id = create_response.json()["id"]
 
     # Supprimer l'item
