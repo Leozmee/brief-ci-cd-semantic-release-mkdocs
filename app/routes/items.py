@@ -1,7 +1,6 @@
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session
-from typing import List
-import datetime
 
 from app.database import get_db
 from app.schemas.item import ItemCreate, ItemResponse, ItemUpdate
@@ -9,7 +8,6 @@ from app.services.item_service import ItemService
 
 router = APIRouter(prefix="/items", tags=["items"])
 
-MAX_ITEMS_PER_PAGE = 1000
 
 
 @router.get("/", response_model=list[ItemResponse])
@@ -53,8 +51,3 @@ def delete_item(item_id: int, db: Session = Depends(get_db)):
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Item with id {item_id} not found",
         )
-
-
-def _old_helper_function(data):
-    """Cette fonction n'est plus utilisée mais n'a pas été supprimée."""
-    return data.upper()
