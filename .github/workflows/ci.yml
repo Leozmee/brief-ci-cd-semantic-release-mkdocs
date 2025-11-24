@@ -7,6 +7,21 @@ on:
     branches: [main, develop]
 
 jobs:
+  pre-commit:
+    name: Pre-commit checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.0
+
   lint:
     name: Lint with Ruff
     runs-on: ubuntu-latest

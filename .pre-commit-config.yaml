@@ -1,0 +1,40 @@
+repos:
+  # Hooks de base pour fichiers
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        name: Trim trailing whitespace
+      - id: end-of-file-fixer
+        name: Fix end of files
+      - id: check-yaml
+        name: Check YAML syntax
+      - id: check-added-large-files
+        name: Check for large files
+        args: ['--maxkb=1000']
+      - id: detect-private-key
+        name: Detect private keys
+      - id: check-merge-conflict
+        name: Check for merge conflicts
+
+  # Ruff - Linting et formatage Python
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.0
+    hooks:
+      - id: ruff
+        name: Run Ruff linter
+        args: [--fix]
+      - id: ruff-format
+        name: Run Ruff formatter
+
+  # Mypy - Type checking
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.11.0
+    hooks:
+      - id: mypy
+        name: Run Mypy type checker
+        additional_dependencies:
+          - sqlmodel
+          - fastapi
+          - types-psycopg2
+        args: [--ignore-missing-imports]
