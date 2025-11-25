@@ -1,5 +1,5 @@
 
-## 1. Problèmes de Sécurité 
+## 1. Problèmes de Sécurité
 
 ### 1.1 Secrets hardcodés dans app/main.py
 
@@ -181,6 +181,3 @@ Le répertoire tests est vide (seulement .gitkeep présent).
 6. Nettoyer les imports inutilisés avec `ruff check --fix`
 7. Corriger le formatage avec `ruff format`
 8. Supprimer les variables non utilisées
-
-
-
