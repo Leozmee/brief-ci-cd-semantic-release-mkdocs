@@ -69,7 +69,7 @@ addopts = "--strict-markers --cov=app --cov-report=term-missing"
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
 version_variables = []
-build_command = "uv build"
+build_command = ""
 major_on_zero = true
 tag_format = "v{version}"
 
