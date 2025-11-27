@@ -288,7 +288,8 @@ brief-ci-cd-semantic-release-mkdocs/
 
 - **Brief du projet** : [BRIEF_CI_CD_V2.md](BRIEF_CI_CD_V2.md)
 - **Problèmes détectés** : [Livraison/PROBLEMES_DETECTES.md](Livraison/PROBLEMES_DETECTES.md)
-- **Travail réalisé** : [claude.md](claude.md)
+- **Veille CI/CD** : [Livraison/VEILLE_CICD.md](Livraison/VEILLE_CICD.md)
+- **Comparatif outils** : [Livraison/COMPARATIF_OUTILS.md](Livraison/COMPARATIF_OUTILS.md)
 - **Changelog** : [CHANGELOG.md](CHANGELOG.md)
 - **Livraison finale** : [Livraison/LIVRAISON_FINALE.md](Livraison/LIVRAISON_FINALE.md)
 
